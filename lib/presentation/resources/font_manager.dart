@@ -4,6 +4,7 @@ class FontConstants
 {
   static const String fontFamilyPrimary = "OpenSans";
   static const String fontFamilyText = "Lato";
+  static const String fontFamilySmallText = "Montserrat";
 }
 
 class FontWeightManager
@@ -24,5 +25,7 @@ class FontSize
   static const double s18 = 18.0;
   static const double s20 = 20.0;
   static const double s22 = 22.0;
+  static const double s25 = 25.0;
   static const double s28 = 28.0;
+  static const double s30 = 30.0;
 }
