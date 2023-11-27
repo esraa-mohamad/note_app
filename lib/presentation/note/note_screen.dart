@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/modules/notes_view_body.dart';
 
 class NoteScreen extends StatefulWidget {
   const NoteScreen({super.key});
@@ -10,6 +11,8 @@ class NoteScreen extends StatefulWidget {
 class _NoteScreenState extends State<NoteScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Scaffold(
+      body: NotesViewBody(),
+    );
   }
 }

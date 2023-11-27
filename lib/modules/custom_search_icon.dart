@@ -1,0 +1,25 @@
+import 'package:flutter/material.dart';
+import 'package:note_app/presentation/resources/color_manager.dart';
+import 'package:note_app/presentation/resources/font_manager.dart';
+
+class CustomSearchIcon extends StatelessWidget {
+  const CustomSearchIcon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(18),
+          color: ColorManager.grey
+      ),
+      child: IconButton(
+        onPressed: (){},
+        icon: const Icon(
+          Icons.search,
+          color: ColorManager.white,
+          size: FontSize.s28,
+        ),
+      ),
+    );
+  }
+}
