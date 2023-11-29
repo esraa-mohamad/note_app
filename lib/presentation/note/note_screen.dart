@@ -18,6 +18,9 @@ class _NoteScreenState extends State<NoteScreen> {
         onPressed: ()
         {
           showModalBottomSheet(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25)
+            ),
               context: context,
               builder: (context)
               {
