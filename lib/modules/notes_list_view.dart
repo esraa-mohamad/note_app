@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:note_app/modules/custom_note_item.dart';
 
 class NotesListView extends StatelessWidget {
@@ -6,10 +6,13 @@ class NotesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemBuilder: (context,index){
-          return const NoteItem();
-        }
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 15),
+      child: ListView.builder(
+          itemBuilder: (context,index){
+            return const NoteItem();
+          }
+      ),
     );
   }
 }

@@ -16,6 +16,7 @@ class NoteApp extends StatelessWidget {
         brightness: Brightness.dark,
         scaffoldBackgroundColor: const Color(0xff303030),
       ),
+      debugShowCheckedModeBanner: false,
       home: const NoteScreen(),
     );
   }
