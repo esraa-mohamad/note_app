@@ -3,7 +3,10 @@ import 'package:note_app/presentation/resources/color_manager.dart';
 import 'package:note_app/presentation/resources/font_manager.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key});
+  const CustomTextField({required this.hintText , this.maxLine=1 ,super.key});
+
+  final String hintText ;
+  final int maxLine ;
 
   @override
   Widget build(BuildContext context) {
@@ -13,15 +16,16 @@ class CustomTextField extends StatelessWidget {
       ),
       child: TextField(
         cursorColor: ColorManager.green,
+        maxLines: maxLine,
         decoration: InputDecoration(
           border: buildBorder(),
           enabledBorder: buildBorder(),
           focusedBorder: buildBorder(ColorManager.green),
-          hintText: 'Title',
+          hintText: hintText,
           hintStyle: const TextStyle(
             color: ColorManager.green,
             fontSize: FontSize.s18
-          )
+          ),
         ),
       ),
     );
