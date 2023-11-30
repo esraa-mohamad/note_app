@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/modules/custom_app_bar.dart';
+import 'package:note_app/modules/custom_text_field.dart';
 
-import '../presentation/resources/color_manager.dart';
-import '../presentation/resources/font_manager.dart';
 
 class EditNoteBody extends StatefulWidget {
   const EditNoteBody({super.key});
@@ -13,21 +13,34 @@ class EditNoteBody extends StatefulWidget {
 class _EditNoteBodyState extends State<EditNoteBody> {
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        SizedBox(
-          height: 60,
-        ),
-        Text(
-          'Edit Note',
-          style: TextStyle(
-            fontWeight: FontWeightManager.regular,
-            fontSize: FontSize.s28,
-            fontFamily: FontConstants.fontFamilyPrimary,
-            color: ColorManager.white,
+    return const Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: 25
+      ),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 60,
           ),
-        ),
-      ],
+          CustomAppBar(
+              title: 'Edit Note',
+              icon: Icons.check
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          CustomTextField(
+              hintText: 'Title'
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          CustomTextField(
+            hintText: 'Title',
+            maxLine: 7,
+          ),
+        ],
+      ),
     );
   }
 }

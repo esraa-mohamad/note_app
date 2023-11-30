@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:note_app/presentation/resources/color_manager.dart';
 import 'package:note_app/presentation/resources/font_manager.dart';
 
-class CustomSearchIcon extends StatelessWidget {
-  const CustomSearchIcon({super.key});
+class CustomIcon extends StatelessWidget {
+  const CustomIcon({required this.icon,super.key});
 
+  final IconData icon ;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,8 +15,8 @@ class CustomSearchIcon extends StatelessWidget {
       ),
       child: IconButton(
         onPressed: (){},
-        icon: const Icon(
-          Icons.search,
+        icon:  Icon(
+          icon,
           color: ColorManager.white,
           size: FontSize.s28,
         ),

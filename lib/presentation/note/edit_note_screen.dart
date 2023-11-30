@@ -13,6 +13,7 @@ class _EditNoteViewState extends State<EditNoteView> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: EditNoteBody(),
+
     );
   }
 }
