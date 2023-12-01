@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:note_app/presentation/note/note_screen.dart';
+import 'package:note_app/presentation/resources/string_manager.dart';
 
-void main() {
+void main() async{
+
+  await Hive.initFlutter();
+  await Hive.openBox(StringManager.notesBox);
+
   runApp(const NoteApp());
 }
 
