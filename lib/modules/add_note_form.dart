@@ -16,26 +16,26 @@ class AddNoteForm extends StatefulWidget {
 
 class _AddNoteFormState extends State<AddNoteForm> {
 
-  final GlobalKey<FormState> formKey =GlobalKey();
+  final GlobalKey<FormState> formKey = GlobalKey();
 
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
-  String? title,subTitle;
+  String? title, subTitle;
 
   @override
   Widget build(BuildContext context) {
-    return  Form(
+    return Form(
       key: formKey,
       autovalidateMode: autovalidateMode,
-      child:  Column(
+      child: Column(
         children: [
           const SizedBox(
             height: 35,
           ),
           CustomTextField(
             hintText: 'Title',
-            onSaved: (value){
-              title=value;
+            onSaved: (value) {
+              title = value;
             },
           ),
           const SizedBox(
@@ -44,29 +44,32 @@ class _AddNoteFormState extends State<AddNoteForm> {
           CustomTextField(
             hintText: 'Content',
             maxLine: 5,
-            onSaved: (value){
-              subTitle=value;
+            onSaved: (value) {
+              subTitle = value;
             },
           ),
           const SizedBox(
             height: 80,
           ),
-           CustomButton(
-            onTap: ()
-            {
-              if(formKey.currentState!.validate())
-              {
-                formKey.currentState!.save();
-                var noteModel = NoteModel(
-                    title: title!,
-                    subTitle: subTitle!,
-                    date: DateTime.now().toString(),
-                    color: Colors.grey.value,
-                );
-                BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
-              }else{
-                autovalidateMode=AutovalidateMode.always;
-              }
+          BlocBuilder<AddNoteCubit, AddNoteState>(
+            builder: (context, state) {
+              return CustomButton(
+                isLoading: state is AddNoteLoading  ? true : false ,
+                onTap: () {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    var noteModel = NoteModel(
+                      title: title!,
+                      subTitle: subTitle!,
+                      date: DateTime.now().toString(),
+                      color: Colors.grey.value,
+                    );
+                    BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                  }
+                },
+              );
             },
           ),
         ],
