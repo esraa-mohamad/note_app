@@ -18,6 +18,7 @@ class _NoteScreenState extends State<NoteScreen> {
         onPressed: ()
         {
           showModalBottomSheet(
+            isScrollControlled: true,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(25)
             ),
