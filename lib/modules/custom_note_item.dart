@@ -3,9 +3,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:note_app/presentation/note/edit_note_screen.dart';
 import 'package:note_app/presentation/resources/color_manager.dart';
 import 'package:note_app/presentation/resources/font_manager.dart';
-class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
 
+import '../models/note_model.dart';
+class NoteItem extends StatelessWidget {
+  const NoteItem({required this.note , super.key});
+
+  final NoteModel note ;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,27 +24,27 @@ class NoteItem extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.only(top:25 , bottom: 25 , left: 16),
           decoration: BoxDecoration(
-            color: ColorManager.darkYellow,
+            color: Color(note.color),
             borderRadius: BorderRadius.circular(18),
           ),
           child:  Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               ListTile(
-                title: const Text(
-                  'Flutter Tips',
-                  style: TextStyle(
+                title:  Text(
+                  note.title,
+                  style: const TextStyle(
                     fontSize: FontSize.s30,
                     fontWeight: FontWeightManager.bold,
                     fontFamily: FontConstants.fontFamilyPrimary,
                     color: ColorManager.black
                   ),
                 ),
-                subtitle: const Padding(
-                  padding: EdgeInsets.only(top: 18),
+                subtitle:  Padding(
+                  padding: const EdgeInsets.only(top: 18),
                   child: Text(
-                    'Build your project note app',
-                    style: TextStyle(
+                    note.subTitle,
+                    style: const TextStyle(
                       color: ColorManager.lightGrey,
                       fontFamily: FontConstants.fontFamilySmallText,
                       fontWeight: FontWeightManager.regular,
@@ -58,11 +61,11 @@ class NoteItem extends StatelessWidget {
                     )
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(right: 24, top: 24),
+               Padding(
+                padding: const EdgeInsets.only(right: 24, top: 24),
                 child: Text(
-                  'Nov 27/2023',
-                  style: TextStyle(
+                  note.date,
+                  style: const TextStyle(
                     fontSize: FontSize.s14,
                     fontWeight: FontWeightManager.light,
                     fontFamily: FontConstants.fontFamilySmallText,
