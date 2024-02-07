@@ -4,10 +4,11 @@ import 'package:note_app/presentation/resources/color_manager.dart';
 import 'package:note_app/presentation/resources/font_manager.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({required this.title ,required this.icon,super.key});
+  const CustomAppBar({required this.title ,required this.icon,super.key, this.onPressed});
 
   final String title ;
   final IconData icon ;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return  Row(
@@ -24,6 +25,7 @@ class CustomAppBar extends StatelessWidget {
         ),
         CustomIcon(
           icon: icon,
+          onPressed: onPressed,
         ),
       ],
     );

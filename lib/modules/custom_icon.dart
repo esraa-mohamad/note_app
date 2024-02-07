@@ -3,7 +3,9 @@ import 'package:note_app/presentation/resources/color_manager.dart';
 import 'package:note_app/presentation/resources/font_manager.dart';
 
 class CustomIcon extends StatelessWidget {
-  const CustomIcon({required this.icon,super.key});
+  const CustomIcon({required this.icon,super.key, this.onPressed});
+
+  final void Function()? onPressed;
 
   final IconData icon ;
   @override
@@ -14,7 +16,7 @@ class CustomIcon extends StatelessWidget {
           color: ColorManager.grey
       ),
       child: IconButton(
-        onPressed: (){},
+        onPressed: onPressed,
         icon:  Icon(
           icon,
           color: ColorManager.white,

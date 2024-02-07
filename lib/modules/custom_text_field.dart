@@ -3,12 +3,12 @@ import 'package:note_app/presentation/resources/color_manager.dart';
 import 'package:note_app/presentation/resources/font_manager.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({required this.hintText , this.maxLine=1, this.onSaved ,super.key});
+  const CustomTextField({required this.hintText , this.maxLine=1, this.onSaved ,super.key, this.onChanged});
 
   final String hintText ;
   final int maxLine ;
   final void Function(String?)? onSaved ;
-
+  final void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,6 +16,7 @@ class CustomTextField extends StatelessWidget {
         horizontal: 15,
       ),
       child: TextFormField(
+        onChanged: onChanged,
         onSaved: onSaved,
         validator: (value){
           if(value?.isEmpty ?? true)
