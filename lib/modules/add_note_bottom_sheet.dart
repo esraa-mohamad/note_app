@@ -3,7 +3,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:note_app/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:note_app/cubits/notes_cubit/notes_cubit.dart';
 
+import '../models/note_model.dart';
 import 'add_note_form.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,10 +27,27 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
         listener: (context, state) {
           if (state is AddNoteFailure) {
             if (kDebugMode) {
-              print('Failed  ${state.errorMessage}');
+              final snackBar = SnackBar(
+                content:  Text(
+                  'Error in add note : ${state.errorMessage}',
+                  style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w800
+                  ),
+                ),
+                backgroundColor: Colors.red,
+                action: SnackBarAction(
+                  label: 'dismiss',
+                  onPressed: () {
+                  },
+                ),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
             }
           }
           if (state is AddNoteSuccess) {
+
             Navigator.pop(context);
           }
         },

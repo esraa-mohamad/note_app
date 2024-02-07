@@ -15,27 +15,24 @@ class NoteScreen extends StatefulWidget {
 class _NoteScreenState extends State<NoteScreen> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubit(),
-      child: Scaffold(
-        body: const NotesViewBody(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            showModalBottomSheet(
-                isScrollControlled: true,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25)
-                ),
-                context: context,
-                builder: (context) {
-                  return const AddNoteBottomSheet();
-                }
-            );
-          },
-          child: const Icon(
-            Icons.add,
-            size: 35,
-          ),
+    return Scaffold(
+      body: const NotesViewBody(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showModalBottomSheet(
+              isScrollControlled: true,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25)
+              ),
+              context: context,
+              builder: (context) {
+                return const AddNoteBottomSheet();
+              }
+          );
+        },
+        child: const Icon(
+          Icons.add,
+          size: 35,
         ),
       ),
     );
