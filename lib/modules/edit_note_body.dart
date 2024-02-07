@@ -6,6 +6,8 @@ import 'package:note_app/modules/custom_text_field.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'color_list_view.dart';
+
 class EditNoteBody extends StatefulWidget {
   const EditNoteBody({super.key, required this.note});
 
@@ -60,6 +62,12 @@ class _EditNoteBodyState extends State<EditNoteBody> {
             {
               content = value;
             },
+          ),
+          const SizedBox(
+            height: 32,
+          ),
+           EditNoteColorsList(
+            noteModel: widget.note,
           ),
         ],
       ),
