@@ -5,7 +5,7 @@ import 'package:note_app/presentation/resources/font_manager.dart';
 class CustomIcon extends StatelessWidget {
   const CustomIcon({required this.icon,super.key, this.onPressed});
 
-  final void Function()? onPressed;
+  final  Function()? onPressed;
 
   final IconData icon ;
   @override

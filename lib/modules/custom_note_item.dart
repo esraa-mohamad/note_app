@@ -50,7 +50,7 @@ class NoteItem extends StatelessWidget {
                   child: Text(
                     note.subTitle,
                     style: const TextStyle(
-                      color: ColorManager.lightGrey,
+                      color: ColorManager.grey,
                       fontFamily: FontConstants.fontFamilySmallText,
                       fontWeight: FontWeightManager.regular,
                       fontSize: FontSize.s18,
@@ -77,7 +77,7 @@ class NoteItem extends StatelessWidget {
                     fontSize: FontSize.s14,
                     fontWeight: FontWeightManager.light,
                     fontFamily: FontConstants.fontFamilySmallText,
-                    color: ColorManager.lightGrey,
+                    color: ColorManager.grey,
                   ),
                 ),
               )
